@@ -1,28 +1,26 @@
 /*
-  Poro Hunt Website — v6 brand theme
-  Adds:
-  - Logo support (.brand-logo)
-  - Brand palette via CSS variables
-  - Updated gradients to match logo (icy + gold/copper)
+  Poro Hunt Website — cleaned
+  Fixes:
+  - Invalid nested selectors in .bubble
+  - Cards being forced into skinny max-width columns (causing "-_-" layouts)
+  - Adds value-card hover (crisp border + tiny lift)
+  - Mobile nav menu becomes vertical
 */
-
-body { min-height: 100vh; }
-main { min-height: calc(100vh - 80px); } /* header height buffer; not exact but works well */
 
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 
-:root{
+:root {
   /* Brand palette (from your logo art) */
   --bg: #0b0f17;
   --bg2: #0f1624;
   --text: #e8eefc;
   --muted: rgba(232, 238, 252, 0.72);
 
-  --ice: #9cb7bf;      /* icy fur highlight */
-  --slate: #2f4050;    /* deep blue slate */
-  --gold: #cea354;     /* crown gold */
-  --copper: #c16830;   /* warm copper accent */
+  --ice: #9cb7bf;
+  --slate: #2f4050;
+  --gold: #cea354;
+  --copper: #c16830;
 
   --border: rgba(255,255,255,0.10);
   --border2: rgba(255,255,255,0.14);
@@ -32,6 +30,7 @@ html, body { height: 100%; }
 }
 
 body {
+  min-height: 100vh;
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   line-height: 1.5;
@@ -39,28 +38,58 @@ body {
   color: var(--text);
 }
 
-/* Utilities */
-/* Full-width container that still has comfortable padding */
+main { min-height: calc(100vh - 80px); }
+
+/* Consistent breathing room before footer on every page */
+main {
+  padding-bottom: 48px;
+}
+
+/* ---------- Utilities ---------- */
+
 .container {
   width: 100%;
-  max-width: none;                 /* removes the “boxed” limit */
+  max-width: none;
   margin: 0 auto;
   padding-left: clamp(16px, 3vw, 48px);
   padding-right: clamp(16px, 3vw, 48px);
 }
+
 .muted { color: var(--muted); }
 .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
 
 .section { padding: 72px 0; }
+
 .section-alt {
   background: rgba(255, 255, 255, 0.03);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+.subtitle {
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-weight: 800;
+  line-height: 1.25;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  display: block;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 800;
+  margin-top: 0.6rem;
+  opacity: 0.9; /* keeps it slightly softer than main line */
+}
+
 .h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.05; margin: 0 0 1rem; }
 .h2 { font-size: 2rem; margin: 0 0 0.5rem; }
-.lede { margin: 0 0 2rem; max-width: 75ch; color: rgba(232, 238, 252, 0.78); }
+
+.lede {
+  margin: 0 0 2rem;
+  max-width: 75ch;
+  color: rgba(232, 238, 252, 0.78);
+}
 
 .pill {
   display: inline-block;
@@ -73,10 +102,13 @@ body {
   margin: 0 0 1rem;
 }
 
+/* Grids */
+.grid-2, .grid-3 { align-items: stretch; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 
-/* Buttons */
+/* ---------- Buttons ---------- */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -102,11 +134,11 @@ body {
 .btn:active { transform: translateY(0px) scale(0.98); }
 
 .btn-primary {
-  /* Brand gradient: copper -> gold -> icy */
   background: linear-gradient(135deg, var(--copper), var(--gold), var(--ice));
   border: none;
   color: #07101a;
 }
+
 .btn-primary:hover {
   filter: brightness(1.06);
   box-shadow: 0 12px 38px rgba(193, 104, 48, 0.12), 0 12px 38px rgba(156, 183, 191, 0.10);
@@ -116,8 +148,11 @@ body {
 .btn-small { padding: 0.55rem 0.85rem; font-size: 0.95rem; }
 .btn[disabled] { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: none; }
 
-/* Micro-animations (already used by your demo) */
-@keyframes pop { 0%{transform:translateY(-2px) scale(1)} 50%{transform:translateY(-2px) scale(1.05)} 100%{transform:translateY(-2px) scale(1)} }
+@keyframes pop {
+  0%{transform:translateY(-2px) scale(1)}
+  50%{transform:translateY(-2px) scale(1.05)}
+  100%{transform:translateY(-2px) scale(1)}
+}
 .btn-pop { animation: pop 180ms ease-out; }
 
 @keyframes shake {
@@ -136,7 +171,19 @@ body {
 }
 .btn-flash { animation: flash 320ms ease-out; }
 
-/* NAV */
+/* Crisp highlight + tiny lift (used for key homepage ghost buttons) */
+.btn-focus:hover {
+  border-color: rgba(206, 163, 84, 0.55);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+  transform: translateY(-2px);
+}
+
+.btn-focus:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* ---------- NAV ---------- */
+
 .site-header {
   position: sticky;
   top: 0;
@@ -153,7 +200,7 @@ body {
   box-shadow: var(--shadow);
 }
 
-.nav-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; gap: 1rem; }
+.nav-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; gap: 1rem; flex-wrap: wrap; }
 
 .brand {
   display: inline-flex;
@@ -174,7 +221,12 @@ body {
 
 .brand-text { font-weight: 900; letter-spacing: 0.2px; }
 
-.nav { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
 
 .nav-link {
   position: relative;
@@ -192,7 +244,6 @@ body {
   color: rgba(232, 238, 252, 0.95);
 }
 
-/* underline uses brand gradient */
 .nav-link::after {
   content: "";
   position: absolute;
@@ -223,28 +274,20 @@ body {
   color: var(--text);
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--border2);
-  cursor: pointer; /* [NEW] pointer cursor like a “send” button */
+  cursor: pointer;
 }
 
-/* Menu button — brand hover */
 .nav-toggle:hover {
-  background: linear-gradient(
-    135deg,
-    var(--copper),
-    var(--gold)
-  );
+  background: linear-gradient(135deg, var(--copper), var(--gold));
   color: #07101a;
   border-color: rgba(206, 163, 84, 0.75);
-
-  /* much subtler depth */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-.nav-toggle:active {
-  transform: scale(0.97);
-}
+.nav-toggle:active { transform: scale(0.97); }
 
-/* HERO */
+/* ---------- HERO / PAGE HERO ---------- */
+
 .hero {
   padding: 84px 0 56px;
   background:
@@ -256,60 +299,6 @@ body {
 .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 2rem; align-items: start; }
 .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
 
-.hero-card, .demo-card, .card {
-  border-radius: 22px;
-  border: 1px solid var(--border);
-  background: var(--panel);
-  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
-  text-align: center;
-  margin-left: auto; margin-right: auto; max-width: 42ch;
-  width: 100%;
-}
-
-/* Keep demo cards “alive”, but keep homepage info cards stable */
-.demo-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.14);
-  box-shadow: var(--shadow);
-}
-
-/* No lift on these */
-.hero-card:hover,
-.card:hover {
-  transform: none;
-  box-shadow: none;
-  border-color: rgba(255, 255, 255, 0.14);
-}
-
-.card-top { display: flex; align-items: center; gap: 0.45rem; padding: 12px 14px; border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); }
-.dot { width: 10px; height: 10px; border-radius: 999px; background: rgba(255,255,255,0.25); }
-.card-title { margin-left: 0.4rem; font-weight: 900; color: rgba(232,238,252,0.85); }
-.card-body { padding: 16px; }
-
-.stat-row { display: flex; gap: 1rem; flex-wrap: wrap; }
-.stat {
-  padding: 0.9rem 1rem;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  min-width: 160px;
-  transition: transform 140ms ease, border-color 140ms ease;
-  text-align: center;
-}
-.stat:hover { border-color: rgba(255,255,255,0.14); }
-.stat-k { font-weight: 900; font-size: 1.05rem; }
-.stat-v { font-size: 0.9rem; color: rgba(232,238,252,0.7); }
-
-.bubble {
-  border-radius: 16px;
-  padding: 14px;
-  background: rgba(11, 15, 23, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  text-align: center; /* NEW */
-  .bubble-title { text-align: center; }
-  .bubble-text  { text-align: center; }
-}
-
 .page-hero {
   padding: 56px 0 24px;
   background:
@@ -318,13 +307,114 @@ body {
     radial-gradient(850px 520px at 55% 0%, rgba(47, 64, 80, 0.18), transparent 62%);
 }
 
-/* Demo / Discord UI (kept as you had it) */
+/* ---------- Cards ---------- */
+
+/* Base “content card” */
+.card, .hero-card, .demo-card {
+  width: 100%;
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.card {
+  padding: 22px;              /* roomier by default */
+  text-align: center;
+}
+
+.card p {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 48ch;            /* readable centered paragraphs */
+}
+
+.card h2, .card h3 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+
+/* Window-style cards used in demo */
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+}
+.dot { width: 10px; height: 10px; border-radius: 999px; background: rgba(255,255,255,0.25); }
+.card-title { margin-left: 0.4rem; font-weight: 900; color: rgba(232,238,252,0.85); }
+.card-body { padding: 16px; }
+
+/* Keep demo cards “alive”, but keep general cards stable */
+.demo-card { transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease; }
+.demo-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: var(--shadow);
+}
+
+/* Stats */
+.stat-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.stat {
+  padding: 0.9rem 1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  min-width: 160px;
+  transition: border-color 140ms ease;
+  text-align: center;
+}
+.stat:hover { border-color: rgba(255,255,255,0.14); }
+.stat-k { font-weight: 900; font-size: 1.05rem; }
+.stat-v { font-size: 0.9rem; color: rgba(232,238,252,0.7); }
+
+/* Bubbles */
+.bubble {
+  border-radius: 16px;
+  padding: 14px;
+  background: rgba(11, 15, 23, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  text-align: center;
+}
+.bubble-title { text-align: center; }
+.bubble-text  { text-align: center; }
+
+/* Value cards (the “bubbles” that were clunky) */
+.value-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.value-card h3 { margin: 0; }
+.value-card p  { margin: 0; max-width: 42ch; }
+
+/* Crisp highlight + tiny lift (ONLY these) */
+.value-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(206, 163, 84, 0.45);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+  background: rgba(255,255,255,0.035);
+}
+.value-card:active { transform: translateY(-1px) scale(0.99); }
+
+/* ---------- Demo / Discord UI ---------- */
+
 .demo-grid {
   display: grid;
-  grid-template-columns: 1.25fr 1fr; /* wider channel panel, still wide results panel */
+  grid-template-columns: 1.25fr 1fr;
   gap: 1rem;
   align-items: start;
 }
+
 .demo-head { padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); }
 .demo-title { margin: 0; font-weight: 900; }
 .demo-sub { margin: 0.2rem 0 0; }
@@ -419,6 +509,7 @@ body {
 /* Toggle */
 .toggle-row { display: inline-grid; grid-template-columns: 1fr; align-items: center; }
 .toggle-row input { position: absolute; opacity: 0; pointer-events: none; }
+
 .toggle-ui {
   width:46px; height:26px; border-radius:999px;
   border:1px solid rgba(255,255,255,0.14);
@@ -427,6 +518,7 @@ body {
   display:inline-block;
   transition: background 160ms ease, border-color 160ms ease;
 }
+
 .toggle-ui::after{
   content:"";
   position:absolute;
@@ -435,6 +527,7 @@ body {
   background: rgba(232,238,252,0.85);
   transition: transform 160ms ease;
 }
+
 #autoSpawnToggle:checked + .toggle-ui {
   background: rgba(156, 183, 191, 0.16);
   border-color: rgba(156, 183, 191, 0.35);
@@ -454,7 +547,8 @@ body {
 .faq summary { cursor:pointer; font-weight:900; }
 .faq p { color: rgba(232,238,252,0.74); }
 
-/* Footer */
+/* ---------- Footer ---------- */
+
 .site-footer { padding: 26px 0; border-top: 1px solid rgba(255,255,255,0.06); }
 
 .footer-row {
@@ -477,10 +571,10 @@ body {
   text-decoration: none;
   font-weight: 900;
 }
-
 .footer-min a:hover { text-decoration: underline; }
 
-/* Floating Back-to-Top button */
+/* ---------- Back-to-top ---------- */
+
 .back-to-top {
   position: fixed;
   right: 18px;
@@ -500,7 +594,6 @@ body {
 
   box-shadow: 0 18px 55px rgba(0,0,0,0.35);
 
-  /* hidden by default */
   opacity: 0;
   transform: translateY(10px);
   pointer-events: none;
@@ -514,38 +607,67 @@ body {
   transform: translateY(6px);
 }
 
-.back-to-top:active {
-  transform: translateY(8px) scale(0.98);
-}
+.back-to-top:active { transform: translateY(8px) scale(0.98); }
 
-/* becomes visible after scroll */
 .back-to-top.is-visible {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .back-to-top { transition: none; }
+/* ---------- CTA ---------- */
+
+.cta-wide {
+  width: 100%;
+  text-align: center;
+  margin-top: 3rem;
 }
 
-/* Responsive */
-@media (max-width: 980px){
+.cta-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 3.5rem);
+}
+
+.cta-wide .lede {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 52ch;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 980px) {
   .hero-grid { grid-template-columns: 1fr; }
   .grid-3, .grid-2, .demo-grid { grid-template-columns: 1fr; }
   .odds { margin-left: 0; width: 100%; text-align: left; }
 
   .nav-toggle { display: inline-flex; }
-  .nav { display:none; width:100%; padding-top:10px; justify-content:flex-start; }
-  .nav.is-open { display:flex; }
-  .nav-row { flex-wrap: wrap; }
+
+  /* Mobile menu = vertical stack */
+  .nav { display: none; width: 100%; padding-top: 10px; flex-direction: column; align-items: stretch; gap: 0.35rem; }
+  .nav.is-open { display: flex; }
+  .nav-link { width: 100%; }
+  .nav .btn { width: 100%; justify-content: center; }
 }
 
 /* Reduced motion */
-@media (prefers-reduced-motion: reduce){
-  .btn, .site-header, .nav-link, .hero-card, .card, .demo-card { transition: none; }
+@media (prefers-reduced-motion: reduce) {
+  .btn, .site-header, .nav-link, .demo-card, .value-card { transition: none; }
   .dmsg.spawn-in, .dmsg.spawn-live { animation: none; }
   .dmsg.fading { transition: none; }
   .dotty { animation: none; }
+  .back-to-top { transition: none; }
+}
+
+/* About page value cards — center content cleanly */
+.about-page .value-card {
+  text-align: center;
+  align-items: center;
+}
+
+.about-page .value-card p {
+  max-width: 40ch;
+  margin-left: auto;
+  margin-right: auto;
 }

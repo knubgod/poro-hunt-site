@@ -1,10 +1,11 @@
-<!-- Poro Hunt — Donate (v1) -->
+<!-- Poro Hunt — Donate (v2) -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Poro Hunt — Support</title>
+
     <link rel="stylesheet" href="./styles.css" />
     <link rel="icon" type="image/png" href="./assets/favicon.png" />
     <meta name="theme-color" content="#0b0f17" />
@@ -18,7 +19,9 @@
           <span class="brand-text">Poro Hunt</span>
         </a>
 
-        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+          Menu
+        </button>
 
         <nav class="nav" id="navMenu">
           <a class="nav-link" href="./index.html">Home</a>
@@ -45,8 +48,7 @@
           </p>
 
           <div class="hero-actions">
-            <!-- Replace with your actual donation links -->
-            <a class="btn btn-primary" href="YOUR_DONATION_LINK" target="_blank" rel="noreferrer">Donate</a>
+            <a class="btn btn-primary" href="https://ko-fi.com/knubgod" target="_blank" rel="noreferrer">Donate on Ko-fi</a>
             <a class="btn btn-ghost" href="https://discord.gg/EASFS7yz" target="_blank" rel="noreferrer">Support Server</a>
           </div>
         </div>
@@ -54,8 +56,9 @@
 
       <section class="section">
         <div class="container">
+
           <div class="grid-2">
-            <div class="card">
+            <div class="card donate-card">
               <h3>What donations cover</h3>
               <p>
                 Hosting costs, monitoring, uptime, and time spent improving the bot.
@@ -63,7 +66,7 @@
               </p>
             </div>
 
-            <div class="card">
+            <div class="card donate-card">
               <h3>No pay-to-win</h3>
               <p>
                 Donations do not provide gameplay advantages, exclusive catches, boosted odds,
@@ -73,7 +76,7 @@
           </div>
 
           <div class="grid-2" style="margin-top: 1rem;">
-            <div class="card">
+            <div class="card donate-card">
               <h3>Optional thank-you (safe perks)</h3>
               <p>
                 If you want, you can offer non-game perks like a “Supporter” role in a support server,
@@ -81,7 +84,7 @@
               </p>
             </div>
 
-            <div class="card">
+            <div class="card donate-card">
               <h3>Transparency</h3>
               <p>
                 Keep your donation messaging honest: “help cover hosting” is better than overpromising.
@@ -89,36 +92,25 @@
               </p>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section class="section section-alt">
-        <div class="container">
-          <h2 class="h2">Legal / trademark note</h2>
-          <p class="lede">
-            Poro Hunt is a fan-made project and is not affiliated with or endorsed by Riot Games.
-            See the disclaimer in the footer for details.
-          </p>
         </div>
       </section>
-    </main>
 
     <footer class="site-footer">
-      <div class="container footer-row">
-        <div class="footer-min">
-          <a href="#top">Back to top</a>
-        </div>
+  <div class="container footer-row">
+    <div class="footer-min">
+      <a href="#top">Back to top</a>
+    </div>
 
-        <p class="muted" style="margin:0;">
-          © <span id="year"></span> Poro Hunt
-          <span class="muted">•</span>
-          <span class="muted">
-  Poro Hunt is a fan-made project and is not affiliated with, endorsed, sponsored, or approved by Riot Games, Inc.
-  League of Legends and poros are trademarks or registered trademarks of Riot Games, Inc.
-</span>
-        </p>
-      </div>
-    </footer>
+    <p class="muted" style="margin:0;">
+      © <span id="year"></span> Poro Hunt <span class="muted">•</span>
+      <span class="muted">
+        Poro Hunt is a fan-made project and is not affiliated with, endorsed, sponsored, or approved by Riot Games, Inc.
+        League of Legends and poros are trademarks or registered trademarks of Riot Games, Inc.
+      </span>
+    </p>
+  </div>
+</footer>
 
     <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">↑</button>
 

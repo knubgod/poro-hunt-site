@@ -1,25 +1,28 @@
-<!-- Poro Hunt — About (v5) -->
+<!-- Poro Hunt — About (v9) -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Poro Hunt — About</title>
+
     <link rel="stylesheet" href="./styles.css" />
     <link rel="icon" type="image/png" href="./assets/favicon.png" />
-<meta name="theme-color" content="#0b0f17" />
-<link rel="apple-touch-icon" href="./assets/favicon.png" />
+    <meta name="theme-color" content="#0b0f17" />
+    <link rel="apple-touch-icon" href="./assets/favicon.png" />
   </head>
 
   <body>
     <header class="site-header" id="siteHeader">
       <div class="container nav-row">
         <a class="brand" href="./index.html" aria-label="Poro Hunt Home">
-  <img class="brand-logo" src="./assets/logo.jpg" alt="Poro Hunt logo" />
-  <span class="brand-text">Poro Hunt</span>
-</a>
+          <img class="brand-logo" src="./assets/logo.jpg" alt="Poro Hunt logo" />
+          <span class="brand-text">Poro Hunt</span>
+        </a>
 
-        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+          Menu
+        </button>
 
         <nav class="nav" id="navMenu">
           <a class="nav-link" href="./index.html">Home</a>
@@ -29,68 +32,109 @@
           <a class="nav-link" href="./about.html" aria-current="page">About</a>
           <a class="nav-link" href="./donate.html">Donate</a>
 
-          <a class="btn btn-ghost" href="https://https://github.com/knubgod/poro-hunt" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=1469908862562734150&permissions=355392&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noreferrer">Invite</a>
+          <a class="btn btn-ghost" href="https://github.com/knubgod/poro-hunt" target="_blank" rel="noreferrer">GitHub</a>
+          <a
+            class="btn btn-primary"
+            href="https://discord.com/oauth2/authorize?client_id=1469908862562734150&permissions=355392&integration_type=0&scope=bot+applications.commands"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Invite
+          </a>
         </nav>
       </div>
     </header>
 
-    <main id="top">
+    <main id="top" class="about-page">
+      <!-- Hero -->
       <section class="page-hero">
         <div class="container">
           <p class="pill">About</p>
-          <h1 class="h1">Who built Poro Hunt?</h1>
+          <h1 class="h1">A mini-game built for real servers.</h1>
           <p class="lede">
-            This page is where you add your “trust” story: who you are, why you made it, and how you handle support.
+            Designed to create fun spawn moments without disrupting conversation.
           </p>
         </div>
       </section>
 
+      <!-- Informational section (NO bubbles) -->
       <section class="section">
         <div class="container">
           <div class="grid-2">
-            <div class="card">
-              <h3>Developer</h3>
+            <div>
+              <h2 class="h2">About Poro Hunt</h2>
               <p>
-                Replace this with your name/handle and a short, human blurb. Keep it straightforward and confident.
+                Poro Hunt is a Discord mini-game where poros appear in a channel and players try to catch them.
+                The focus is simple: keep things fun, keep things lightweight, and keep chat readable.
               </p>
-              <p class="muted" style="margin-top:10px;">
-                Example: “I built Poro Hunt to add a low-noise mini-game to real servers without turning chat into bot logs.”
+              <p>
+                Spawns are public to create shared moments, while outcomes can remain private so servers
+                can continue their normal conversations without clutter.
               </p>
             </div>
 
-            <div class="card">
-              <h3>Support & updates</h3>
+            <div>
+              <h2 class="h2">About the developer</h2>
               <p>
-                Link your support server, GitHub issues, or a contact method — whatever you actually plan to maintain.
+                Poro Hunt is built by <strong>KnubGod</strong> — a Discord server admin and developer
+                who wanted a bot that feels like it belongs in real communities.
               </p>
-              <p class="muted" style="margin-top:10px;">
-                Tip: A simple, consistent support channel is more marketable than overpromising.
+              <p>
+                The goal is a satisfying collection loop, clean interaction design,
+                and real admin controls — without spam and without pay-to-win mechanics.
               </p>
             </div>
-          </div>
-
-          <div class="hero-actions" style="margin-top: 1rem;">
-            <a class="btn btn-ghost" href="https://github.com/knubgod/poro-hunt" target="_blank" rel="noreferrer">View GitHub</a>
-            <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=1469908862562734150&permissions=355392&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noreferrer">Invite</a>
           </div>
         </div>
       </section>
+
+      <!-- Project values (left aligned, bubbles kept) -->
+      <section class="section section-alt">
+        <div class="container">
+          <h2 class="h2">Project values</h2>
+          <p class="lede">
+            Built to be fun in public, tidy in practice, and easy for admins to manage.
+          </p>
+
+          <div class="grid-3" style="margin-top: 1rem;">
+            <div class="value-card">
+              <h3>Low noise</h3>
+              <p>Private results and minimal clutter so your server stays readable.</p>
+            </div>
+
+            <div class="value-card">
+              <h3>Server control</h3>
+              <p>Configurable channels and timers so it fits your community vibe.</p>
+            </div>
+
+            <div class="value-card">
+              <h3>Fair play</h3>
+              <p>No pay-to-win. Donations support hosting and development only.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
     </main>
 
     <footer class="site-footer">
-  <div class="container footer-row">
-    <div class="footer-min">
-      <a href="#top">Back to top</a>
-    </div>
-    <p class="muted">© <span id="year"></span> Poro Hunt</p>
-  </div>
-</footer>
+      <div class="container footer-row">
+        <div class="footer-min">
+          <a href="#top">Back to top</a>
+        </div>
+
+        <p class="muted" style="margin:0;">
+          © <span id="year"></span> Poro Hunt <span class="muted">•</span>
+          <span class="muted">
+            Poro Hunt is a fan-made project and is not affiliated with, endorsed, sponsored, or approved by Riot Games, Inc.
+            League of Legends and poros are trademarks or registered trademarks of Riot Games, Inc.
+          </span>
+        </p>
+      </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">↑</button>
 
     <script src="./script.js"></script>
-    <!-- Floating Back-to-Top -->
-<button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">
-  ↑
-</button>
   </body>
 </html>

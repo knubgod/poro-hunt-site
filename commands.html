@@ -1,25 +1,27 @@
-<!-- Poro Hunt — Commands (v5) -->
+<!-- Poro Hunt — Commands (v4, cleaned) -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Poro Hunt — Commands</title>
+
     <link rel="stylesheet" href="./styles.css" />
     <link rel="icon" type="image/png" href="./assets/favicon.png" />
-<meta name="theme-color" content="#0b0f17" />
-<link rel="apple-touch-icon" href="./assets/favicon.png" />
+    <meta name="theme-color" content="#0b0f17" />
   </head>
 
   <body>
     <header class="site-header" id="siteHeader">
       <div class="container nav-row">
         <a class="brand" href="./index.html" aria-label="Poro Hunt Home">
-  <img class="brand-logo" src="./assets/logo.jpg" alt="Poro Hunt logo" />
-  <span class="brand-text">Poro Hunt</span>
-</a>
+          <img class="brand-logo" src="./assets/logo.jpg" alt="Poro Hunt logo" />
+          <span class="brand-text">Poro Hunt</span>
+        </a>
 
-        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+          Menu
+        </button>
 
         <nav class="nav" id="navMenu">
           <a class="nav-link" href="./index.html">Home</a>
@@ -29,64 +31,233 @@
           <a class="nav-link" href="./about.html">About</a>
           <a class="nav-link" href="./donate.html">Donate</a>
 
-          <a class="btn btn-ghost" href="https://https://github.com/knubgod/poro-hunt" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn btn-ghost" href="https://github.com/knubgod/poro-hunt" target="_blank" rel="noreferrer">GitHub</a>
           <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=1469908862562734150&permissions=355392&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noreferrer">Invite</a>
         </nav>
       </div>
     </header>
 
     <main id="top">
+      <!-- Page hero -->
       <section class="page-hero">
         <div class="container">
           <p class="pill">Commands</p>
-          <h1 class="h1">Fast reference for players and admins.</h1>
-          <p class="lede">Keep this simple. Link to GitHub/docs for the deep stuff later if you want.</p>
+          <h1 class="h1">Everything you need to play and configure.</h1>
+          <p class="lede">
+            Poro Hunt uses slash commands. Most gameplay happens through a private menu so channels stay clean.
+          </p>
         </div>
       </section>
 
+      <!-- Commands content -->
       <section class="section">
         <div class="container">
-          <div class="grid-2">
-            <div class="card">
-              <h3>Player commands</h3>
-              <p class="mono muted" style="margin-top:6px;">/poro menu</p>
-              <p>Open the private game menu.</p>
+          <!-- Page-only helpers for command layout -->
+          <style>
+            .cmd-grid {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 1rem;
+              align-items: start;
+            }
 
-              <p class="mono muted" style="margin-top:10px;">/poro collection</p>
-              <p>View your caught poros and progress.</p>
+            .cmd-list {
+              display: grid;
+              gap: 0.75rem;
+              margin-top: 0.75rem;
+            }
+
+            .cmd {
+              border-radius: 16px;
+              padding: 14px 16px;
+              border: 1px solid rgba(255, 255, 255, 0.08);
+              background: rgba(0, 0, 0, 0.22);
+              text-align: left;
+            }
+
+            /* Row 1: name left, chip right (same line) */
+            .cmd-top {
+              display: flex;
+              align-items: baseline;
+              justify-content: space-between;
+              gap: 0.75rem;
+              flex-wrap: nowrap;
+            }
+
+            .cmd-name {
+              margin: 0;
+              font-weight: 900;
+              max-width: none; /* don't inherit global paragraph clamps */
+            }
+
+            .cmd-chip {
+              display: inline-flex;
+              align-items: center;
+              padding: 0.2rem 0.55rem;
+              border-radius: 999px;
+              font-weight: 900;
+              font-size: 0.78rem;
+              border: 1px solid rgba(255, 255, 255, 0.12);
+              background: rgba(255, 255, 255, 0.06);
+              color: rgba(232, 238, 252, 0.88);
+              white-space: nowrap;
+              flex: 0 0 auto;
+            }
+
+            /* Row 2: /command + description on the same line */
+            .cmd-code {
+              display: inline-block;
+              margin-top: 8px;
+              padding: 0.35rem 0.55rem;
+              border-radius: 12px;
+              border: 1px solid rgba(255, 255, 255, 0.1);
+              background: rgba(255, 255, 255, 0.04);
+              font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+              font-weight: 900;
+              color: rgba(232, 238, 252, 0.92);
+              vertical-align: baseline;
+            }
+
+            .cmd-desc {
+              display: inline;
+              margin: 0;
+              margin-left: 10px;
+              color: rgba(232, 238, 252, 0.74);
+              max-width: none; /* don't inherit global paragraph clamps */
+              vertical-align: baseline;
+            }
+
+            .cmd-desc::before {
+              content: "— ";
+              opacity: 0.65;
+            }
+
+            .cmd-note {
+              margin-top: 10px;
+              padding: 10px 12px;
+              border-radius: 14px;
+              border: 1px solid rgba(206, 163, 84, 0.22);
+              background: rgba(206, 163, 84, 0.06);
+              text-align: left;
+            }
+
+            @media (max-width: 980px) {
+              .cmd-grid { grid-template-columns: 1fr; }
+            }
+
+            /* On very small screens, let the chip wrap and stack line 2 cleanly */
+            @media (max-width: 520px) {
+              .cmd-top { flex-wrap: wrap; }
+              .cmd-desc { display: block; margin-left: 0; margin-top: 8px; }
+              .cmd-desc::before { content: ""; }
+            }
+          </style>
+
+          <div class="cmd-grid">
+            <!-- Player commands -->
+            <div class="card">
+              <h2 class="h2" style="margin-bottom: 0;">Player commands</h2>
+              <p class="lede" style="margin: 0.5rem auto 0;">
+                Most gameplay is accessed through your private menu to avoid channel spam.
+              </p>
+
+              <div class="cmd-list">
+                <div class="cmd">
+                  <div class="cmd-top">
+                    <p class="cmd-name">Open the game menu</p>
+                    <span class="cmd-chip">Recommended</span>
+                  </div>
+                  <span class="cmd-code">/poro menu</span>
+                  <p class="cmd-desc">Opens your private game menu (collection, actions, stats) without cluttering the channel.</p>
+                </div>
+
+                <div class="cmd">
+                  <div class="cmd-top">
+                    <p class="cmd-name">View your collection</p>
+                    <span class="cmd-chip">Player</span>
+                  </div>
+                  <span class="cmd-code">/poro collection</span>
+                  <p class="cmd-desc">Shows your caught poros, progress, and any collection milestones.</p>
+                </div>
+
+                <div class="cmd">
+                  <div class="cmd-top">
+                    <p class="cmd-name">Check your stats</p>
+                    <span class="cmd-chip">Player</span>
+                  </div>
+                  <span class="cmd-code">/poro stats</span>
+                  <p class="cmd-desc">Your catches, misses, streaks, and other fun numbers.</p>
+                </div>
+              </div>
+
+              <div class="cmd-note">
+                <strong>Tip:</strong> When a poro spawns, players interact with buttons (Catch / Berry).
+                Results can stay private so the channel stays clean.
+              </div>
             </div>
 
+            <!-- Admin commands -->
             <div class="card">
-              <h3>Admin commands</h3>
-              <p class="mono muted" style="margin-top:6px;">/poro config</p>
-              <p>Configure spawn channel(s), timers, and behavior.</p>
+              <h2 class="h2" style="margin-bottom: 0;">Admin commands</h2>
+              <p class="lede" style="margin: 0.5rem auto 0;">
+                Set spawn channels and timing so the bot fits your server instead of taking it over.
+              </p>
 
-              <p class="mono muted" style="margin-top:10px;">/poro status</p>
-              <p>Health/status info for admins.</p>
+              <div class="cmd-list">
+                <div class="cmd">
+                  <div class="cmd-top">
+                    <p class="cmd-name">Configure the bot</p>
+                    <span class="cmd-chip">Admin</span>
+                  </div>
+                  <span class="cmd-code">/poro config</span>
+                  <p class="cmd-desc">Set spawn channel(s), timers, and server preferences.</p>
+                </div>
+
+                <div class="cmd">
+                  <div class="cmd-top">
+                    <p class="cmd-name">Check status</p>
+                    <span class="cmd-chip">Admin</span>
+                  </div>
+                  <span class="cmd-code">/poro status</span>
+                  <p class="cmd-desc">View configuration summary and basic health/status info.</p>
+                </div>
+
+                <div class="cmd">
+                  <div class="cmd-top">
+                    <p class="cmd-name">Test spawns (dev)</p>
+                    <span class="cmd-chip">Optional</span>
+                  </div>
+                  <span class="cmd-code">/poro spawn</span>
+                  <p class="cmd-desc">Manually trigger a spawn for testing (useful in dev servers).</p>
+                </div>
+              </div>
+
+              <div class="cmd-note">
+                <strong>Best practice:</strong> Use a dedicated spawn channel so the rest of your server stays clean.
+              </div>
             </div>
-          </div>
-
-          <div class="hero-actions" style="margin-top: 1rem;">
-            <a class="btn btn-ghost" href="./faq.html">Read FAQ</a>
-            <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=1469908862562734150&permissions=355392&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noreferrer">Invite</a>
           </div>
         </div>
       </section>
-    </main>
 
     <footer class="site-footer">
   <div class="container footer-row">
     <div class="footer-min">
       <a href="#top">Back to top</a>
     </div>
-    <p class="muted">© <span id="year"></span> Poro Hunt</p>
+
+    <p class="muted" style="margin:0;">
+      © <span id="year"></span> Poro Hunt <span class="muted">•</span>
+      <span class="muted">
+        Poro Hunt is a fan-made project and is not affiliated with, endorsed, sponsored, or approved by Riot Games, Inc.
+        League of Legends and poros are trademarks or registered trademarks of Riot Games, Inc.
+      </span>
+    </p>
   </div>
 </footer>
 
+    <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">↑</button>
+
     <script src="./script.js"></script>
-    <!-- Floating Back-to-Top -->
-<button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">
-  ↑
-</button>
   </body>
 </html>
