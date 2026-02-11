@@ -1,0 +1,127 @@
+<!-- Poro Hunt — Donate (v1) -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Poro Hunt — Support</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+    <meta name="theme-color" content="#0b0f17" />
+  </head>
+
+  <body>
+    <header class="site-header" id="siteHeader">
+      <div class="container nav-row">
+        <a class="brand" href="./index.html" aria-label="Poro Hunt Home">
+          <img class="brand-logo" src="./assets/logo.jpg" alt="Poro Hunt logo" />
+          <span class="brand-text">Poro Hunt</span>
+        </a>
+
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
+
+        <nav class="nav" id="navMenu">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link" href="./features.html">Features</a>
+          <a class="nav-link" href="./commands.html">Commands</a>
+          <a class="nav-link" href="./faq.html">FAQ</a>
+          <a class="nav-link" href="./about.html">About</a>
+          <a class="nav-link" href="./donate.html" aria-current="page">Donate</a>
+
+          <a class="btn btn-ghost" href="https://github.com/knubgod/poro-hunt" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=1469908862562734150&permissions=355392&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noreferrer">Invite</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="page-hero">
+        <div class="container">
+          <p class="pill">Support</p>
+          <h1 class="h1">Help keep Poro Hunt online.</h1>
+          <p class="lede">
+            Poro Hunt is free to use. If you enjoy it, donations help cover hosting and ongoing development.
+            Donations are optional and do not unlock gameplay features.
+          </p>
+
+          <div class="hero-actions">
+            <!-- Replace with your actual donation links -->
+            <a class="btn btn-primary" href="YOUR_DONATION_LINK" target="_blank" rel="noreferrer">Donate</a>
+            <a class="btn btn-ghost" href="https://discord.gg/EASFS7yz" target="_blank" rel="noreferrer">Support Server</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="grid-2">
+            <div class="card">
+              <h3>What donations cover</h3>
+              <p>
+                Hosting costs, monitoring, uptime, and time spent improving the bot.
+                If the bot grows, costs grow with it — donations keep it sustainable.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>No pay-to-win</h3>
+              <p>
+                Donations do not provide gameplay advantages, exclusive catches, boosted odds,
+                or locked features. Everyone plays the same game.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid-2" style="margin-top: 1rem;">
+            <div class="card">
+              <h3>Optional thank-you (safe perks)</h3>
+              <p>
+                If you want, you can offer non-game perks like a “Supporter” role in a support server,
+                or a name listed on a credits page — but no in-game power.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Transparency</h3>
+              <p>
+                Keep your donation messaging honest: “help cover hosting” is better than overpromising.
+                It protects you and builds trust with users.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <h2 class="h2">Legal / trademark note</h2>
+          <p class="lede">
+            Poro Hunt is a fan-made project and is not affiliated with or endorsed by Riot Games.
+            See the disclaimer in the footer for details.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <div class="footer-min">
+          <a href="#top">Back to top</a>
+        </div>
+
+        <p class="muted" style="margin:0;">
+          © <span id="year"></span> Poro Hunt
+          <span class="muted">•</span>
+          <span class="muted">
+  Poro Hunt is a fan-made project and is not affiliated with, endorsed, sponsored, or approved by Riot Games, Inc.
+  League of Legends and poros are trademarks or registered trademarks of Riot Games, Inc.
+</span>
+        </p>
+      </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">↑</button>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

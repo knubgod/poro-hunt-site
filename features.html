@@ -1,0 +1,119 @@
+<!-- Poro Hunt — Features (v5) -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Poro Hunt — Features</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+<meta name="theme-color" content="#0b0f17" />
+<link rel="apple-touch-icon" href="./assets/favicon.png" />
+  </head>
+
+  <body>
+    <header class="site-header" id="siteHeader">
+      <div class="container nav-row">
+        <a class="brand" href="./index.html" aria-label="Poro Hunt Home">
+  <img class="brand-logo" src="./assets/logo.jpg" alt="Poro Hunt logo" />
+  <span class="brand-text">Poro Hunt</span>
+</a>
+
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
+
+        <nav class="nav" id="navMenu">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link" href="./features.html" aria-current="page">Features</a>
+          <a class="nav-link" href="./commands.html">Commands</a>
+          <a class="nav-link" href="./faq.html">FAQ</a>
+          <a class="nav-link" href="./about.html">About</a>
+          <a class="nav-link" href="./donate.html">Donate</a>
+
+          <a class="btn btn-ghost" href="https://https://github.com/knubgod/poro-hunt" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=1469908862562734150&permissions=355392&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noreferrer">Invite</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="page-hero">
+        <div class="container">
+          <p class="pill">Features</p>
+          <h1 class="h1">Everything you can tune for your server.</h1>
+          <p class="lede">
+            This page is intentionally more detailed — the homepage is for the pitch, this is for the “okay, but how does it work?”
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="grid-3">
+            <div class="card">
+              <h3>Spawn system</h3>
+              <p>Poros appear in configured channel(s). Your community gets the moment without constant noise.</p>
+            </div>
+            <div class="card">
+              <h3>Despawn timer</h3>
+              <p>Spawns can expire automatically. No clutter, no “stuck” messages hanging around.</p>
+            </div>
+            <div class="card">
+              <h3>Boosts</h3>
+              <p>Berries boost odds for a spawn. Keeps players making decisions instead of mindlessly clicking.</p>
+            </div>
+            <div class="card">
+              <h3>Collections</h3>
+              <p>Successful catches add to personal progress and give people a reason to return.</p>
+            </div>
+            <div class="card">
+              <h3>Private outcomes</h3>
+              <p>Catch results/rewards can be delivered privately, keeping your channel readable.</p>
+            </div>
+            <div class="card">
+              <h3>Server settings</h3>
+              <p>Adjust spawn timing, which channels are used, and balance knobs as the bot evolves.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <h2 class="h2">Why servers keep it</h2>
+          <p class="lede">The bot is designed around “fun per message.” If it doesn’t add value, it shouldn’t post.</p>
+
+          <div class="grid-2">
+            <div class="card">
+              <h3>It respects the chat</h3>
+              <p>Public spawns are the only necessary channel messages. Everything else can be private.</p>
+            </div>
+            <div class="card">
+              <h3>It creates moments</h3>
+              <p>A spawn is a mini-event. The point is the shared “everyone rushes to catch it” energy.</p>
+            </div>
+          </div>
+
+          <div class="hero-actions" style="margin-top: 1rem;">
+            <a class="btn btn-ghost" href="./index.html#demo">Watch the demo</a>
+            <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=1469908862562734150&permissions=355392&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noreferrer">Invite</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+  <div class="container footer-row">
+    <div class="footer-min">
+      <a href="#top">Back to top</a>
+    </div>
+    <p class="muted">© <span id="year"></span> Poro Hunt</p>
+  </div>
+</footer>
+
+    <script src="./script.js"></script>
+    <!-- Floating Back-to-Top -->
+<button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">
+  ↑
+</button>
+  </body>
+</html>

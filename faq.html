@@ -1,0 +1,104 @@
+<!-- Poro Hunt — FAQ (v5) -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Poro Hunt — FAQ</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+<meta name="theme-color" content="#0b0f17" />
+<link rel="apple-touch-icon" href="./assets/favicon.png" />
+  </head>
+
+  <body>
+    <header class="site-header" id="siteHeader">
+      <div class="container nav-row">
+        <a class="brand" href="./index.html" aria-label="Poro Hunt Home">
+  <img class="brand-logo" src="./assets/logo.jpg" alt="Poro Hunt logo" />
+  <span class="brand-text">Poro Hunt</span>
+</a>
+
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
+
+        <nav class="nav" id="navMenu">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link" href="./features.html">Features</a>
+          <a class="nav-link" href="./commands.html">Commands</a>
+          <a class="nav-link" href="./faq.html" aria-current="page">FAQ</a>
+          <a class="nav-link" href="./about.html">About</a>
+          <a class="nav-link" href="./donate.html">Donate</a>
+
+          <a class="btn btn-ghost" href="https://https://github.com/knubgod/poro-hunt" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=1469908862562734150&permissions=355392&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noreferrer">Invite</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="page-hero">
+        <div class="container">
+          <p class="pill">FAQ</p>
+          <h1 class="h1">Quick answers.</h1>
+          <p class="lede">If your goal is “fun, not spam,” this is the page most admins read.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <details class="faq">
+            <summary>Will this spam my channel?</summary>
+            <p>Spawns can be public, but outcomes can be private. That’s the core design.</p>
+          </details>
+
+          <details class="faq">
+            <summary>Can spawns expire / despawn?</summary>
+            <p>Yes. Despawn timers keep the channel from getting stuck with old spawn messages.</p>
+          </details>
+
+          <details class="faq">
+            <summary>Can I choose where spawns happen?</summary>
+            <p>Yes. Configure one or more channels depending on how your server is organized.</p>
+          </details>
+
+          <details class="faq">
+            <summary>Is there an admin setup flow?</summary>
+            <p>That’s what config commands are for. Keep the gameplay out of regular channels.</p>
+          </details>
+
+          <details class="faq">
+  <summary>Legal / Riot Games disclaimer</summary>
+  <p>
+    Poro Hunt is a fan-made project and is not affiliated with, endorsed, sponsored, or approved by Riot Games, Inc.
+    League of Legends and poros are trademarks or registered trademarks of Riot Games, Inc.
+  </p>
+  <p>
+    All trademarks and related content belong to their respective owners. This project is intended for entertainment and community use.
+  </p>
+</details>
+
+          <div class="hero-actions" style="margin-top: 1rem;">
+            <a class="btn btn-ghost" href="./commands.html">Commands</a>
+            <a class="btn btn-ghost" href="./features.html">Features</a>
+            <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=1469908862562734150&permissions=355392&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noreferrer">Invite</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+  <div class="container footer-row">
+    <div class="footer-min">
+      <a href="#top">Back to top</a>
+    </div>
+    <p class="muted">© <span id="year"></span> Poro Hunt</p>
+  </div>
+</footer>
+
+    <script src="./script.js"></script>
+    <!-- Floating Back-to-Top -->
+<button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">
+  ↑
+</button>
+  </body>
+</html>

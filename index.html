@@ -1,0 +1,230 @@
+<!-- Poro Hunt — Home + Demo (v5) -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Poro Hunt — Discord Mini-Game Bot</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+<meta name="theme-color" content="#0b0f17" />
+<link rel="apple-touch-icon" href="./assets/favicon.png" />
+  </head>
+
+  <body>
+    <header class="site-header" id="siteHeader">
+      <div class="container nav-row">
+        <a class="brand" href="./index.html" aria-label="Poro Hunt Home">
+  <img class="brand-logo" src="./assets/logo.jpg" alt="Poro Hunt logo" />
+  <span class="brand-text">Poro Hunt</span>
+</a>
+
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
+
+        <nav class="nav" id="navMenu">
+          <a class="nav-link" href="./index.html" aria-current="page">Home</a>
+          <a class="nav-link" href="./features.html">Features</a>
+          <a class="nav-link" href="./commands.html">Commands</a>
+          <a class="nav-link" href="./faq.html">FAQ</a>
+          <a class="nav-link" href="./about.html">About</a>
+          <a class="nav-link" href="./donate.html">Donate</a>
+
+          <a class="btn btn-ghost" href="https://https://github.com/knubgod/poro-hunt" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=1469908862562734150&permissions=355392&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noreferrer">Invite</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="pill">Discord mini-game • collection • spawns • rewards</p>
+
+            <h1 class="h1">
+              Catch poros. Build a collection.
+              <span class="muted" style="display:block; font-weight:900;">Keep your server lively — without the spam.</span>
+            </h1>
+
+            <p class="lede">
+              Poro Hunt is a lightweight Discord mini-game. A poro spawns in your channel, people try to catch it,
+              and results can be private to keep the chat clean.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=1469908862562734150&permissions=355392&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noreferrer">Invite Poro Hunt</a>
+              <a class="btn btn-ghost" href="./features.html">Explore features</a>
+              <a class="btn btn-ghost" href="#demo">Watch the demo</a>
+            </div>
+
+            <div class="stat-row">
+              <div class="stat">
+                <div class="stat-k">Configurable</div>
+                <div class="stat-v">spawns, channels, timers</div>
+              </div>
+              <div class="stat">
+                <div class="stat-k">Low-noise</div>
+                <div class="stat-v">private results option</div>
+              </div>
+              <div class="stat">
+                <div class="stat-k">Sticky</div>
+                <div class="stat-v">collection + rewards loop</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="card-top">
+              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+              <span class="card-title">What it looks like</span>
+            </div>
+            <div class="card-body">
+              <div class="bubble">
+                <p class="bubble-title">A wild poro appears!</p>
+                <p class="bubble-text">
+                  Players click <strong>Catch</strong> to attempt.
+                  Toss a <strong>Berry</strong> first to boost odds.
+                </p>
+              </div>
+              <p class="muted" style="margin:12px 0 0;">
+                Below: a live demo that shows the spawn “typing…”, appearing, then fading out on despawn.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container">
+          <h2 class="h2">What you’re getting</h2>
+          <p class="lede">A tight gameplay loop that fits into real servers without becoming annoying.</p>
+
+          <div class="grid-3">
+            <div class="card">
+              <h3>Spawn moments</h3>
+              <p>Public spawns create a shared “oh!” moment without constant bot chatter.</p>
+            </div>
+            <div class="card">
+              <h3>Private outcomes</h3>
+              <p>Let players see catch results privately while everyone else keeps talking.</p>
+            </div>
+            <div class="card">
+              <h3>Server control</h3>
+              <p>Choose channels, timers, and balancing so it matches your community vibe.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Demo root marker for script.js -->
+      <section class="section" id="demo">
+        <div class="container" id="demoRoot">
+          <h2 class="h2">Interactive demo</h2>
+          <p class="lede">This mock web app simulates: typing → spawn → berry → catch → private result → fade out.</p>
+
+          <div class="demo-grid">
+            <div class="demo-card">
+              <div class="demo-head">
+                <p class="demo-title">Server channel</p>
+                <p class="demo-sub mono muted"># spawn-channel</p>
+              </div>
+
+              <div class="demo-body">
+                <div class="demo-controls">
+                  <button class="btn btn-primary btn-small" id="spawnBtn">Spawn a poro</button>
+
+                  <label class="demo-label">
+                    Despawn (seconds)
+                    <input class="demo-input" id="despawnInput" type="number" min="5" max="120" value="15" />
+                  </label>
+
+                  <label class="demo-label">
+                    Auto spawn
+                    <span class="toggle-row">
+                      <input id="autoSpawnToggle" type="checkbox" />
+                      <span class="toggle-ui" aria-hidden="true"></span>
+                    </span>
+                  </label>
+
+                  <label class="demo-label">
+                    Auto every (seconds)
+                    <input class="demo-input" id="autoSpawnInterval" type="number" min="8" max="120" value="25" />
+                  </label>
+                </div>
+
+                <div class="discord-shell">
+                  <div class="discord-top">
+                    <span class="hash">#</span> <span class="chan">spawn-channel</span>
+                    <span class="topic muted">poros appear here • click to catch</span>
+                  </div>
+
+                  <div class="discord-feed" id="channelFeed" aria-live="polite"></div>
+
+                  <div class="discord-actions">
+                    <button class="btn btn-ghost btn-small" id="berryBtn" disabled>Toss berry</button>
+                    <button class="btn btn-ghost btn-small" id="catchBtn" disabled>Catch</button>
+
+                    <div class="odds">
+                      <p class="odds-k muted">Catch chance</p>
+                      <p class="odds-v mono" id="oddsValue">—</p>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="muted" style="margin:10px 0 0;">
+                  Note: “typing…” appears before the spawn to mimic how bots post in real servers.
+                </p>
+              </div>
+            </div>
+
+            <div class="demo-card">
+              <div class="demo-head">
+                <p class="demo-title">Private results</p>
+                <p class="demo-sub muted">Only you can see this (ephemeral-style)</p>
+              </div>
+
+              <div class="demo-body">
+                <div class="private-box" id="privateBox">
+                  <div class="ephemeral">
+                    <p class="muted">No results yet. Spawn a poro and try catching it.</p>
+                  </div>
+                </div>
+
+                <div class="private-stats">
+                  <div class="pstat">
+                    <p class="pstat-k muted">Caught</p>
+                    <p class="pstat-v" id="caughtCount">0</p>
+                  </div>
+                  <div class="pstat">
+                    <p class="pstat-k muted">Missed</p>
+                    <p class="pstat-v" id="missedCount">0</p>
+                  </div>
+                  <div class="pstat">
+                    <p class="pstat-k muted">Berries used</p>
+                    <p class="pstat-v" id="berriesUsed">0</p>
+                  </div>
+                </div>
+
+                <button class="btn btn-ghost btn-small" id="resetDemoBtn">Reset demo</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <footer class="site-footer">
+  <div class="container footer-row">
+    <div class="footer-min">
+      <a href="#top">Back to top</a>
+    </div>
+    <p class="muted">© <span id="year"></span> Poro Hunt</p>
+  </div>
+</footer>
+
+    <script src="./script.js"></script>
+    <!-- Floating Back-to-Top -->
+<button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">
+  ↑
+</button>
+  </body>
+</html>
