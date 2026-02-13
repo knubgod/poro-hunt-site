@@ -1,4 +1,4 @@
-<!-- Poro Hunt — Commands (v4, cleaned) -->
+<!-- Poro Hunt — Commands (v5, cleaned + corrected) -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,8 +31,9 @@
           <a class="nav-link" href="./about.html">About</a>
           <a class="nav-link" href="./donate.html">Donate</a>
 
-          <a class="btn btn-ghost" href="https://github.com/knubgod/poro-hunt" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=1469908862562734150&permissions=355392&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noreferrer">Invite</a>
+          <a class="btn btn-primary" href="https://github.com/knubgod/poro-hunt" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
         </nav>
       </div>
     </header>
@@ -44,7 +45,7 @@
           <p class="pill">Commands</p>
           <h1 class="h1">Everything you need to play and configure.</h1>
           <p class="lede">
-            Poro Hunt uses slash commands. Most gameplay happens through a private menu so channels stay clean.
+            Poro Hunt uses slash commands. Most gameplay happens through menus/buttons so channels stay clean.
           </p>
         </div>
       </section>
@@ -142,14 +143,24 @@
             }
 
             @media (max-width: 980px) {
-              .cmd-grid { grid-template-columns: 1fr; }
+              .cmd-grid {
+                grid-template-columns: 1fr;
+              }
             }
 
             /* On very small screens, let the chip wrap and stack line 2 cleanly */
             @media (max-width: 520px) {
-              .cmd-top { flex-wrap: wrap; }
-              .cmd-desc { display: block; margin-left: 0; margin-top: 8px; }
-              .cmd-desc::before { content: ""; }
+              .cmd-top {
+                flex-wrap: wrap;
+              }
+              .cmd-desc {
+                display: block;
+                margin-left: 0;
+                margin-top: 8px;
+              }
+              .cmd-desc::before {
+                content: "";
+              }
             }
           </style>
 
@@ -158,7 +169,7 @@
             <div class="card">
               <h2 class="h2" style="margin-bottom: 0;">Player commands</h2>
               <p class="lede" style="margin: 0.5rem auto 0;">
-                Most gameplay is accessed through your private menu to avoid channel spam.
+                These are the main commands for server members.
               </p>
 
               <div class="cmd-list">
@@ -167,32 +178,32 @@
                     <p class="cmd-name">Open the game menu</p>
                     <span class="cmd-chip">Recommended</span>
                   </div>
-                  <span class="cmd-code">/poro menu</span>
-                  <p class="cmd-desc">Opens your private game menu (collection, actions, stats) without cluttering the channel.</p>
+                  <span class="cmd-code">/menu</span>
+                  <p class="cmd-desc">Your main hub for Poro Hunt (quick access without cluttering channels).</p>
                 </div>
 
                 <div class="cmd">
                   <div class="cmd-top">
-                    <p class="cmd-name">View your collection</p>
+                    <p class="cmd-name">View the showcase</p>
                     <span class="cmd-chip">Player</span>
                   </div>
-                  <span class="cmd-code">/poro collection</span>
-                  <p class="cmd-desc">Shows your caught poros, progress, and any collection milestones.</p>
+                  <span class="cmd-code">/showcase</span>
+                  <p class="cmd-desc">Shows the server’s showcase output (what it displays depends on your setup).</p>
                 </div>
 
                 <div class="cmd">
                   <div class="cmd-top">
-                    <p class="cmd-name">Check your stats</p>
+                    <p class="cmd-name">View the leaderboard</p>
                     <span class="cmd-chip">Player</span>
                   </div>
-                  <span class="cmd-code">/poro stats</span>
-                  <p class="cmd-desc">Your catches, misses, streaks, and other fun numbers.</p>
+                  <span class="cmd-code">/leaderboard</span>
+                  <p class="cmd-desc">See top players and standings for your server.</p>
                 </div>
               </div>
 
               <div class="cmd-note">
-                <strong>Tip:</strong> When a poro spawns, players interact with buttons (Catch / Berry).
-                Results can stay private so the channel stays clean.
+                <strong>Tip:</strong> Most interactions happen through menus/buttons to keep chat readable.
+                If your bot uses private responses, players won’t spam the channel when they play.
               </div>
             </div>
 
@@ -200,61 +211,100 @@
             <div class="card">
               <h2 class="h2" style="margin-bottom: 0;">Admin commands</h2>
               <p class="lede" style="margin: 0.5rem auto 0;">
-                Set spawn channels and timing so the bot fits your server instead of taking it over.
+                All admin tools are run as <strong>/poro admin &lt;command&gt;</strong>.
               </p>
 
               <div class="cmd-list">
                 <div class="cmd">
                   <div class="cmd-top">
-                    <p class="cmd-name">Configure the bot</p>
+                    <p class="cmd-name">Set spawns per day</p>
                     <span class="cmd-chip">Admin</span>
                   </div>
-                  <span class="cmd-code">/poro config</span>
-                  <p class="cmd-desc">Set spawn channel(s), timers, and server preferences.</p>
+                  <span class="cmd-code">/poro admin spawnsperday</span>
+                  <p class="cmd-desc">Adjust how many spawns the server can get per day.</p>
                 </div>
 
                 <div class="cmd">
                   <div class="cmd-top">
-                    <p class="cmd-name">Check status</p>
+                    <p class="cmd-name">Set the spawn channel</p>
                     <span class="cmd-chip">Admin</span>
                   </div>
-                  <span class="cmd-code">/poro status</span>
-                  <p class="cmd-desc">View configuration summary and basic health/status info.</p>
+                  <span class="cmd-code">/poro admin channel</span>
+                  <p class="cmd-desc">Choose which channel poros will spawn in.</p>
                 </div>
 
                 <div class="cmd">
                   <div class="cmd-top">
-                    <p class="cmd-name">Test spawns (dev)</p>
-                    <span class="cmd-chip">Optional</span>
+                    <p class="cmd-name">Set the showcase channel</p>
+                    <span class="cmd-chip">Admin</span>
                   </div>
-                  <span class="cmd-code">/poro spawn</span>
-                  <p class="cmd-desc">Manually trigger a spawn for testing (useful in dev servers).</p>
+                  <!-- NOTE: If your actual subcommand name is different (e.g., "showcasechannel" or "showcase"),
+                       change ONLY the code text below. -->
+                  <span class="cmd-code">/poro admin showcase-channel</span>
+                  <p class="cmd-desc">Choose which channel receives showcase posts/updates.</p>
+                </div>
+
+                <div class="cmd">
+                  <div class="cmd-top">
+                    <p class="cmd-name">Clear the current spawn</p>
+                    <span class="cmd-chip">Admin</span>
+                  </div>
+                  <span class="cmd-code">/poro admin clearspawn</span>
+                  <p class="cmd-desc">Removes the active spawn (helpful if something gets stuck).</p>
+                </div>
+
+                <div class="cmd">
+                  <div class="cmd-top">
+                    <p class="cmd-name">Reset everything</p>
+                    <span class="cmd-chip">Admin</span>
+                  </div>
+                  <span class="cmd-code">/poro admin resetall</span>
+                  <p class="cmd-desc">Resets server data/settings. Use with caution.</p>
+                </div>
+
+                <div class="cmd">
+                  <div class="cmd-top">
+                    <p class="cmd-name">Run setup</p>
+                    <span class="cmd-chip">Admin</span>
+                  </div>
+                  <span class="cmd-code">/poro admin setup</span>
+                  <p class="cmd-desc">Runs initial setup and prepares the server for spawns.</p>
+                </div>
+
+                <div class="cmd">
+                  <div class="cmd-top">
+                    <p class="cmd-name">Force a spawn</p>
+                    <span class="cmd-chip">Admin</span>
+                  </div>
+                  <span class="cmd-code">/poro admin spawn</span>
+                  <p class="cmd-desc">Manually triggers a spawn (useful for testing or events).</p>
                 </div>
               </div>
 
               <div class="cmd-note">
-                <strong>Best practice:</strong> Use a dedicated spawn channel so the rest of your server stays clean.
+                <strong>Best practice:</strong> Put spawns in a dedicated channel so the rest of your server stays clean.
               </div>
             </div>
           </div>
         </div>
       </section>
+    </main>
 
     <footer class="site-footer">
-  <div class="container footer-row">
-    <div class="footer-min">
-      <a href="#top">Back to top</a>
-    </div>
+      <div class="container footer-row">
+        <div class="footer-min">
+          <a href="#top">Back to top</a>
+        </div>
 
-    <p class="muted" style="margin:0;">
-      © <span id="year"></span> Poro Hunt <span class="muted">•</span>
-      <span class="muted">
-        Poro Hunt is a fan-made project and is not affiliated with, endorsed, sponsored, or approved by Riot Games, Inc.
-        League of Legends and poros are trademarks or registered trademarks of Riot Games, Inc.
-      </span>
-    </p>
-  </div>
-</footer>
+        <p class="muted" style="margin: 0;">
+          © <span id="year"></span> Poro Hunt <span class="muted">•</span>
+          <span class="muted">
+            Poro Hunt is a fan-made project and is not affiliated with, endorsed, sponsored, or approved by Riot Games, Inc.
+            League of Legends and poros are trademarks or registered trademarks of Riot Games, Inc.
+          </span>
+        </p>
+      </div>
+    </footer>
 
     <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">↑</button>
 
